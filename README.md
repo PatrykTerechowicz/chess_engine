@@ -1,0 +1,1 @@
+Chess game, to run game you need to run chess_board.py script.
