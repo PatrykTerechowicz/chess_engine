@@ -29,7 +29,7 @@ def main():
     photo_taken = PhotoImage(file=Path.cwd().parents[0] / "res" / "generalPiece.png")
     game = Game()
 
-    pieces = game.pieces
+    pieces = game.pieces #todo : change it all
 
     slots = set()
     for i in range(8):
