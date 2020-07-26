@@ -13,5 +13,9 @@ class Cell(Button):
         self.x = x
         self.y = y
         self.colour = WHITE_BOARD if (x + y) % 2 == 0 else BLACK_BOARD
-        self.config({'background':self.colour})
+        self.config({'background': self.colour})
         # style options
+
+    def set_piece(self, piece):
+        if piece is None:
+            self.config({'image': None})
