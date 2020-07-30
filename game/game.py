@@ -1,11 +1,10 @@
 import pieces
 from player import Player
+from board import Board
 
 class Game:
     def __init__(self):
-        self.board = [[None] * 8 for _ in range(8)]
-        for i in range(8):
-            self.board[i][0] = pieces.Pawn(i, 0, player=Player.WHITE)
+        self.board = Board()
 
     def print_board(self):
         pass

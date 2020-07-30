@@ -1,21 +1,31 @@
 from tkinter import Tk, Frame, Canvas, Button, PhotoImage
-from cell import Cell, BLACK_BOARD, WHITE_BOARD
+import cell
 from game import Game
 import math
 from pathlib import Path
 
 """Used for board size."""
 HEIGHT, WIDTH = 500, 500
-"""Used for determining cell colour."""
+
 root = Tk()
+cell.init_images()
+
+
+class App:
+    def __init__(self):
+        pass
+
 
 def main():
-    frame = Frame(width=WIDTH, height=HEIGHT)
-    photo = PhotoImage(file=Path.cwd().parents[0] / "res" / "empty.png")
-    photo_taken = PhotoImage(file=Path.cwd().parents[0] / "res" / "generalPiece.png")
     game = Game()
+    # Initializing cells data
+    cells = [[None] * 8] * 8
+    for i in range(8):
+        for j in range(8):
+            cells[i][j] = cell.Cell(i, j, game.board)
+            cells[i][j].set_piece(game.board[i][j])
+            cells[i][j].grid(column=i, row=j)
 
-    frame.pack()
     root.mainloop()
 
 

@@ -1,5 +1,4 @@
 from player import Player
-from utils import at
 
 
 class Piece:
@@ -10,6 +9,9 @@ class Piece:
 
     def calculate_moves(self, board):
         return [], []
+
+    def __repr__(self):
+        return f"Type: {type(self)} Player: {self.player.name}"
 
 
 class Pawn(Piece):
@@ -29,7 +31,7 @@ class Pawn(Piece):
             moves.append((self.x, self.y + 2*direction))
         moves_filtered = []
         for move in moves:
-            if at(board, move) is None:
+            if 'at(board, move)' is None:
                 moves_filtered.append(move)
             else:
                 moves = moves_filtered
@@ -39,7 +41,7 @@ class Pawn(Piece):
         attacks.append((self.x - 1, self.y + direction))
         attacks_filtered = []
         for attack in attacks:
-            if isinstance(at(board, attack), Piece):
+            if isinstance('at(board, move)', Piece):
                 attacks_filtered.append(attack)
         attacks = attacks_filtered
         del attacks_filtered
