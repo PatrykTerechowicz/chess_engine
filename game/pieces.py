@@ -31,7 +31,7 @@ class Pawn(Piece):
             moves.append((self.x, self.y + 2*direction))
         moves_filtered = []
         for move in moves:
-            if 'at(board, move)' is None:
+            if board[move] is None:
                 moves_filtered.append(move)
             else:
                 moves = moves_filtered
@@ -41,8 +41,9 @@ class Pawn(Piece):
         attacks.append((self.x - 1, self.y + direction))
         attacks_filtered = []
         for attack in attacks:
-            if isinstance('at(board, move)', Piece):
+            if isinstance(board[move], Piece):
                 attacks_filtered.append(attack)
         attacks = attacks_filtered
         del attacks_filtered
         return moves, attacks
+

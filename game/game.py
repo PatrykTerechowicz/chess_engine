@@ -15,7 +15,7 @@ class Game:
             return
         piece_second = self.board[x1][y1]
         # first we need to check if first piece can reach second piece
-        possible_moves, possible_attacks = piece_first.calculate_moves()
+        possible_moves, possible_attacks = piece_first.calculate_moves(self.board)
         pass
 
     def checkmate(self) -> tuple:

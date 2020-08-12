@@ -23,7 +23,7 @@ def main():
     for i in range(8):
         for j in range(8):
             cells[i][j] = cell.Cell(i, j, game.board)
-            cells[i][j].set_piece(game.board[i][j])
+            cells[i][j].set_piece(game.board[i, j])
             cells[i][j].grid(column=i, row=j)
 
     root.mainloop()

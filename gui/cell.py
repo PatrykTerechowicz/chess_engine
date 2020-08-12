@@ -37,3 +37,4 @@ class Cell(Button):
 
     def slot_callback(self):
         print("this button is at %d, %d" % (self.x, self.y))
+        print({self.board[self.x, self.y]})
