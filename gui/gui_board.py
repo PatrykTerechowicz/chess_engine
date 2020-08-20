@@ -2,6 +2,7 @@ from tkinter import *
 from res import resource_manager
 from pieces import *
 from player import Player
+from random import randint
 
 
 CHOOSE_PIECE = 0
@@ -15,7 +16,7 @@ class BoardButton(Button):
         self.x = x
         self.y = y
         self['command'] = self.callback
-        self.image = PhotoImage(resource_manager.empty)
+        self.image = resource_manager.images.black_bishop if randint(0, 1) == 0 else resource_manager.images.white_pawn
         self['image'] = self.image
         self['width'] = 50
         self['height'] = 50

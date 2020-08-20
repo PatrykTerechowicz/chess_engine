@@ -2,8 +2,7 @@ from sys import exit
 from tkinter import *
 from pathlib import Path
 from gui_board import Board
-import res.resource_manager
-
+from res import resource_manager
 
 def exit_popup():
     sys.exit(0)
@@ -48,4 +47,5 @@ class App:
 
 if __name__ == '__main__':
     application = App()
+    resource_manager.init_image()
     application.start()
