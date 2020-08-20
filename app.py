@@ -11,8 +11,8 @@ def exit_popup():
 class App:
     def __init__(self):
         self.top_frame = Tk()
+        resource_manager.init_image()
         self.top_frame.title("Chess Game")
-        self.top_frame.geometry("200x100")
         self.create_main_menu()
         self.is_game_started = False
 
@@ -33,8 +33,7 @@ class App:
         pass
 
     def create_main_menu(self):
-        img = PhotoImage()
-        label = Label(self.top_frame)
+        label = Label(self.top_frame, image=resource_manager.images.main_menu)
         label['text'] = "Szachy by patryk"
         label.pack()
         Button(text="New Game", command=self.create_new_game).pack(fill=BOTH)
@@ -47,5 +46,4 @@ class App:
 
 if __name__ == '__main__':
     application = App()
-    resource_manager.init_image()
     application.start()

@@ -21,6 +21,7 @@ class PieceImages:
         self.white_queen = PhotoImage(file=res_path / 'white_queen.png')
         self.white_rook = PhotoImage(file=res_path / 'white_rook.png')
         self.empty = PhotoImage(file=str(empty_cell_path))
+        self.main_menu = PhotoImage(file=str(menu_image_path))
 
 
 images = None

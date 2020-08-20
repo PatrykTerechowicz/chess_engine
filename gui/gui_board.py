@@ -4,7 +4,6 @@ from pieces import *
 from player import Player
 from random import randint
 
-
 CHOOSE_PIECE = 0
 SELECT_CELL = 1
 
@@ -16,8 +15,9 @@ class BoardButton(Button):
         self.x = x
         self.y = y
         self['command'] = self.callback
-        self.image = resource_manager.images.black_bishop if randint(0, 1) == 0 else resource_manager.images.white_pawn
-        self['image'] = self.image
+        self['background'] = "#A0A0A0" if (x + y) % 2 == 0 else "#E0E0E0"
+        self.piece = None
+        self['image'] = resource_manager.images.empty
         self['width'] = 50
         self['height'] = 50
 
@@ -29,7 +29,7 @@ class BoardButton(Button):
             pass
         print("Clicked a button " + str(self) + f" {self.x} {self.y}")
 
-    def place_piece(self, piece: Piece):
+    def place_piece(self, piece):
         pass
 
 
@@ -44,9 +44,12 @@ class Board(Frame):
                 new_button = BoardButton(self, x, y)
                 self.buttons.append(new_button)
                 new_button.grid(column=x, row=y)
+        self.place_starting_pieces()
 
     def place_starting_pieces(self):
-        pass
+        for x in range(8):
+            self.get_button(x, 1).config(image=resource_manager.images.black_pawn)
+            self.get_button(x, 6).config(image=resource_manager.images.white_pawn)
 
     def get_button(self, x: int, y: int):
         return self.buttons[x + y * 8]
